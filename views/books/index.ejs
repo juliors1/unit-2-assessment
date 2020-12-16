@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookList</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1>Book List</h1>
+  <hr>
+  <% books.forEach((b)=> { %>
+    <form action="/books/<%=b._id%>?_method=DELETE" method="POST">
+      <a href="/books/<%=b._id%>">Book Detail</a>
+      <p><%=b.name%></p>
+      <p><%=b.read === true ? "This book has been read" : "This book is unread" %></p>
+
+      <button type="submit">X</button>
+    </form>
+    <%})%>
+</body>
+</html>
